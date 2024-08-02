@@ -13,34 +13,30 @@ def find_paths(castle, soldiers):
     path1 = []
     path2 = []
     path3 = []
-
-    # Starting point
     start = castle
 
-    # Path 1
     path1.append(start)
-    path1.append(Point(1, 9))  # Kill (1,9), turn left
-    path1.append(Point(8, 9))  # Jump (5,9), kill (8,9), turn left
-    path1.append(Point(8, 2))  # Kill (8,2), turn left
-    path1.append(Point(1, 2))  # Jump (4,2), arrive (1,2)
+    path1.append(Point(1, 9))  
+    path1.append(Point(8, 9))  
+    path1.append(Point(8, 2))  
+    path1.append(Point(1, 2))  
 
-    # Path 2
+    
     path2.append(start)
-    path2.append(Point(1, 9))  # Kill (1,9), turn left
-    path2.append(Point(5, 9))  # Kill (5,9), turn left
-    path2.append(Point(5, 6))  # Kill (5,6), turn left
-    path2.append(Point(2, 6))  # Kill (2,6), turn left
-    path2.append(Point(2, 8))  # Kill (2,8), turn left
-    path2.append(Point(4, 8))  # Kill (4,8), turn left
-    path2.append(Point(4, 1))  # Jump (4,2), kill (4,1), turn left
-    path2.append(Point(1, 1))  # Kill (1,1), turn left
-    path2.append(Point(1, 2))  # Arrive (1,2)
+    path2.append(Point(1, 9))  
+    path2.append(Point(5, 9))  
+    path2.append(Point(5, 6))  
+    path2.append(Point(2, 6))  
+    path2.append(Point(2, 8)) 
+    path2.append(Point(4, 8)) 
+    path2.append(Point(4, 1))  
+    path2.append(Point(1, 1)) 
+    path2.append(Point(1, 2))  
 
-    # Path 3 (students should define this)
+    
     path3.append(start)
-    # Further logic for path 3 would go here, based on the instructions
 
-    # Output results
+
     print("Path 1:\n========")
     print_path(path1)
 
@@ -48,7 +44,7 @@ def find_paths(castle, soldiers):
     print_path(path2)
 
     print("Path 3:\n========")
-    print_path(path3)  # Path 3 logic to be defined by the user
+    print_path(path3)  
 
 def main():
     n = int(input("Enter number of soldiers: "))
