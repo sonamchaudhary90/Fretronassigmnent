@@ -1,0 +1,59 @@
+def distribute_apples():
+    # Read the apple weights
+    apple_weights = []
+    while True:
+        weight = int(input("Enter apple weight in gram (-1 to stop): "))
+        if weight == -1:
+            break
+        apple_weights.append(weight)
+    
+    # Sort the apples by weight in descending order for better allocation
+    apple_weights.sort(reverse=True)
+    
+    # Amount paid by each person
+    total_amount = 100
+    ram_amount = 50
+    sham_amount = 30
+    rahim_amount = 20
+    
+    # Total share of each person
+    ram_share = ram_amount / total_amount
+    sham_share = sham_amount / total_amount
+    rahim_share = rahim_amount / total_amount
+    
+    # Total weight of apples
+    total_weight = sum(apple_weights)
+    
+    # Calculate target weights
+    ram_target = total_weight * ram_share
+    sham_target = total_weight * sham_share
+    rahim_target = total_weight * rahim_share
+    
+    # Distribute the apples
+    ram_apples = []
+    sham_apples = []
+    rahim_apples = []
+    
+    current_ram_weight = 0
+    current_sham_weight = 0
+    current_rahim_weight = 0
+    
+    for weight in apple_weights:
+        if current_ram_weight + weight <= ram_target:
+            ram_apples.append(weight)
+            current_ram_weight += weight
+        elif current_sham_weight + weight <= sham_target:
+            sham_apples.append(weight)
+            current_sham_weight += weight
+        else:
+            rahim_apples.append(weight)
+            current_rahim_weight += weight
+    
+    # Output the distribution
+    print("Distribution Result:")
+    print(f"Ram: {', '.join(map(str, ram_apples))}")
+    print(f"Sham: {', '.join(map(str, sham_apples))}")
+    print(f"Rahim: {', '.join(map(str, rahim_apples))}")
+
+# Run the program
+distribute_apples()
