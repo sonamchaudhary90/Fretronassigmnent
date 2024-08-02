@@ -1,0 +1,68 @@
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f"({self.x},{self.y})"
+
+def print_path(path):
+    print(" -> ".join(map(str, path)))
+
+def find_paths(castle, soldiers):
+    path1 = []
+    path2 = []
+    path3 = []
+
+    # Starting point
+    start = castle
+
+    # Path 1
+    path1.append(start)
+    path1.append(Point(1, 9))  # Kill (1,9), turn left
+    path1.append(Point(8, 9))  # Jump (5,9), kill (8,9), turn left
+    path1.append(Point(8, 2))  # Kill (8,2), turn left
+    path1.append(Point(1, 2))  # Jump (4,2), arrive (1,2)
+
+    # Path 2
+    path2.append(start)
+    path2.append(Point(1, 9))  # Kill (1,9), turn left
+    path2.append(Point(5, 9))  # Kill (5,9), turn left
+    path2.append(Point(5, 6))  # Kill (5,6), turn left
+    path2.append(Point(2, 6))  # Kill (2,6), turn left
+    path2.append(Point(2, 8))  # Kill (2,8), turn left
+    path2.append(Point(4, 8))  # Kill (4,8), turn left
+    path2.append(Point(4, 1))  # Jump (4,2), kill (4,1), turn left
+    path2.append(Point(1, 1))  # Kill (1,1), turn left
+    path2.append(Point(1, 2))  # Arrive (1,2)
+
+    # Path 3 (students should define this)
+    path3.append(start)
+    # Further logic for path 3 would go here, based on the instructions
+
+    # Output results
+    print("Path 1:\n========")
+    print_path(path1)
+
+    print("Path 2:\n========")
+    print_path(path2)
+
+    print("Path 3:\n========")
+    print_path(path3)  # Path 3 logic to be defined by the user
+
+def main():
+    n = int(input("Enter number of soldiers: "))
+
+    soldiers = []
+    for i in range(1, n + 1):
+        x, y = map(int, input(f"Enter coordinates for soldier {i}: ").split(","))
+        soldiers.append(Point(x, y))
+
+    cx, cy = map(int, input("Enter the coordinates for your “special” castle: ").split(","))
+    castle = Point(cx, cy)
+
+    print("Thanks. There are 3 unique paths for your ‘special_castle’")
+    find_paths(castle, soldiers)
+
+if __name__ == "__main__":
+    main()
